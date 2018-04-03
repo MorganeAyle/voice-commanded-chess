@@ -25,10 +25,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    speech.cpp \
+    action.cpp \
+    commands.cpp \
+    mycontinuous.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    speech.h \
+    action.h \
+    commands.h
 
 FORMS += \
         mainwindow.ui
+
+unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lpocketsphinx
+unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lsphinxbase
+unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lsphinxad
+
+INCLUDEPATH += $$PWD/../Desktop/cmusphinx/pocketsphinx/include
+DEPENDPATH += $$PWD/../Desktop/cmusphinx/pocketsphinx/include
+
+INCLUDEPATH += $$PWD/../Desktop/cmusphinx/sphinxbase/include
+DEPENDPATH += $$PWD/../Desktop/cmusphinx/sphinxbase/include
+
+unix:!macx: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/libpocketsphinx.a
+unix:!macx: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/libsphinxad.a
+unix:!macx: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/pkgconfig
