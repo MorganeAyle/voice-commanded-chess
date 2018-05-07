@@ -2,10 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QThread>
+#include <QDebug>
 
 #include "tetriswindow.h"
-#include "chesswindow.h"
 #include "action.h"
+#include "thread2.h"
 
 namespace Ui {
 class MainWindow;

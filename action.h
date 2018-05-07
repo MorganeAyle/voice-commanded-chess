@@ -14,6 +14,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define TETRIS 0
+#define CHESS 1
+
 class Action : public QObject
 {
     Q_OBJECT
@@ -31,14 +34,11 @@ public:
 
     void execute();
 
-    void message();
-
     QSharedMemory sharedMemory;
 
 signals:
 
 public slots:
-    void busMessage();
 };
 
 #endif // ACTION_H

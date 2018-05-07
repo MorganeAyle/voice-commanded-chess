@@ -7,14 +7,7 @@ Action::Action(QObject *parent) : QObject(parent)
 
 Action::Action(int game, QString key) {
     this->game = game;
-    if (game == 1) {
-
-//        sharedMemory = new QSharedMemory("blabla", NULL);
-//        if (!sharedMemory->create(11)) {
-//            sharedMemory->setKey("blabla");
-//            qDebug() << "unable to create shared mem";
-//            qDebug() << QString::fromUtf8(sharedMemory->errorString().toStdString().c_str());
-//        }
+    if (game == CHESS) {
 
         map.insert("one", 7);
         map.insert("two", 6);
@@ -38,13 +31,13 @@ Action::Action(int game, QString key) {
 
 
 void Action::execute() {
-    if (game == 0) {
-        QString command("xdotool key " + key);
-        QByteArray array = command.toLocal8Bit();
-        const char* buffer = array.data();
-        system (buffer);
+    if (game == TETRIS) {
+        QString string("xdotool key " + key);
+        QByteArray string8bit = string.toLocal8Bit();
+        const char* command = string8bit.data();
+        system (command);
     }
-    else if (game == 1) {
+    else if (game == CHESS) {
         QStringList list = key.split(" ");
         QStringList move;
         move.append(QString::number(map[list[0]]));
@@ -65,25 +58,14 @@ void Action::execute() {
             }
 
         QBuffer *buffer = new QBuffer;
-           buffer->setBuffer(&msg);
-           int size = buffer->size();
+        buffer->setBuffer(&msg);
+        int size = buffer->size();
 
-           qDebug() << "buffer size " << QString::number(size);
-
-
-           sharedMemory.lock();
-           char *to = (char*) (sharedMemory.data());
-           const char *from = buffer->data().data();
-           memcpy(to, from, qMin(sharedMemory.size(), size));
-           sharedMemory.unlock();
-
-           qDebug() << "from " << from;
-           qDebug() << "to  " << to;
-           qDebug() << "from text " << *from;
-           qDebug() << "to text " << *to;
+        sharedMemory.lock();
+        char *to = (char*) (sharedMemory.data());
+        const char *from = buffer->data().data();
+        memcpy(to, from, qMin(sharedMemory.size(), size));
+        sharedMemory.unlock();
     }
 }
 
-void Action::busMessage() {
-    qDebug() << "message sent";
-}

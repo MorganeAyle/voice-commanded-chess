@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+#include "thread2.h"
 #include "speech.h"
 #include "commands.h"
 

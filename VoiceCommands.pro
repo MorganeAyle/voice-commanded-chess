@@ -31,7 +31,6 @@ SOURCES += \
     commands.cpp \
     mycontinuous.cpp \
     tetriswindow.cpp \
-    chesswindow.cpp \
     action.cpp
 
 HEADERS += \
@@ -39,8 +38,8 @@ HEADERS += \
     speech.h \
     commands.h \
     tetriswindow.h \
-    chesswindow.h \
-    action.h
+    action.h \
+    thread2.h
 
 FORMS += \
         mainwindow.ui \

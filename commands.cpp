@@ -39,8 +39,7 @@ Commands::Commands(int game, QString up, QString left, QString right, QString do
        inputFile.close();
     }
 
-    QString filename="/home/morgane/Desktop/cmusphinx/pocketsphinx/model/en-us/persdict.dict";
-    QFile file( filename );
+    QFile file("/home/morgane/Desktop/cmusphinx/pocketsphinx/model/en-us/tetrisdict.dict");
     if ( file.open(QIODevice::ReadWrite) )
     {
         QTextStream stream( &file );
