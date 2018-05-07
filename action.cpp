@@ -7,6 +7,7 @@ Action::Action(QObject *parent) : QObject(parent)
 
 Action::Action(int game, QString key) {
     this->game = game;
+    this->key = key;
     if (game == CHESS) {
 
         map.insert("one", 7);
@@ -26,7 +27,6 @@ Action::Action(int game, QString key) {
         map.insert("g", 6);
         map.insert("h", 7);
     }
-    this->key = key;
 }
 
 
@@ -50,7 +50,8 @@ void Action::execute() {
 
         QByteArray msg = toSend.toUtf8();
 
-        sharedMemory.setKey("blabla");
+        sharedMemory.setKey("VoiceChess");
+
         if (!sharedMemory.attach()) {
                 qDebug() << "Unable to attach mem seg";
                 qDebug() << QString::fromUtf8(sharedMemory.errorString().toStdString().c_str());

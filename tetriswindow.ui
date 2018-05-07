@@ -99,7 +99,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Please enter a keyword for each stoke</string>
+    <string>Please enter a keyword for each stroke</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
@@ -113,6 +113,25 @@
    </property>
    <property name="text">
     <string>Done</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="resultLabel">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>60</y>
+     <width>261</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

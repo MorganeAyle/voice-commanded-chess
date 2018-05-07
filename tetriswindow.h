@@ -18,6 +18,7 @@ class TetrisWindow : public QWidget
 public:
     explicit TetrisWindow(QWidget *parent = 0);
     ~TetrisWindow();
+    bool verifyCommands();
 
 private slots:
     void on_pushButton_clicked();

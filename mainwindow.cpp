@@ -24,7 +24,7 @@ void MainWindow::on_tetrisButton_clicked()
 void MainWindow::on_chessButton_clicked()
 {
     Thread2 thread;
-    thread.program = "/home/morgane/Desktop/build-Chess-Desktop-Debug/build/Chess";
+    thread.program = "../build-Chess/build/Chess";
     thread.start();
 
     Commands allCommands;

@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT       += dbus
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,13 +22,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+CONFIG += console
 
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
     speech.cpp \
     commands.cpp \
-    mycontinuous.cpp \
     tetriswindow.cpp \
     action.cpp
 
@@ -43,19 +42,18 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
-    tetriswindow.ui \
-    chesswindow.ui
+    tetriswindow.ui
 
-unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lpocketsphinx
-unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lsphinxbase
-unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lsphinxad
+unix:!macx: LIBS += -L/usr/local/lib/ -lpocketsphinx
+unix:!macx: LIBS += -L/usr/local/lib/ -lsphinxbase
+unix:!macx: LIBS += -L/usr/local/lib/ -lsphinxad
 
-INCLUDEPATH += $$PWD/../Desktop/cmusphinx/pocketsphinx/include
-DEPENDPATH += $$PWD/../Desktop/cmusphinx/pocketsphinx/include
+INCLUDEPATH += $$PWD/../cmusphinx/pocketsphinx/include
+DEPENDPATH += $$PWD/../cmusphinx/pocketsphinx/include
 
-INCLUDEPATH += $$PWD/../Desktop/cmusphinx/sphinxbase/include
-DEPENDPATH += $$PWD/../Desktop/cmusphinx/sphinxbase/include
+INCLUDEPATH += $$PWD/../cmusphinx/sphinxbase/include
+DEPENDPATH += $$PWD/../cmusphinx/sphinxbase/include
 
-unix:!macx: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/libpocketsphinx.a
-unix:!macx: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/libsphinxad.a
-unix:!macx: PRE_TARGETDEPS += $$PWD/../../../usr/local/lib/pkgconfig
+unix:!macx: PRE_TARGETDEPS += /usr/local/lib/libpocketsphinx.a
+unix:!macx: PRE_TARGETDEPS += /usr/local/lib/libsphinxad.a
+unix:!macx: PRE_TARGETDEPS += /usr/local/lib/pkgconfig
