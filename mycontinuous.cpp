@@ -259,8 +259,6 @@ recognize_from_microphone(Commands allCommands)
         ps_process_raw(ps, adbuf, k, FALSE, FALSE);
         in_speech = ps_get_in_speech(ps);
         if (in_speech && !utt_started) {
-            ps_set_keyphrase(ps, "keyphrase_search", "left");
-            ps_set_search(ps, "keyphrase_search");
             utt_started = TRUE;
             E_INFO("Listening...\n");
         }
@@ -269,7 +267,7 @@ recognize_from_microphone(Commands allCommands)
             ps_end_utt(ps);
             hyp = ps_get_hyp(ps, NULL );
             if (hyp != NULL) {
-                allCommands.contains(hyp); // check if it is a valid command from dict.
+                allCommands.validate(hyp); // check if it is a valid command from dict.
                 printf("%s\n", hyp);
                 fflush(stdout);
             }

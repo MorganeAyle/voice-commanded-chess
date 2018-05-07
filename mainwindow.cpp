@@ -12,3 +12,18 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_tetrisButton_clicked()
+{
+    TetrisWindow *t = new TetrisWindow;
+    t->show();
+
+    this->close();
+}
+
+void MainWindow::on_chessButton_clicked()
+{
+    Commands allCommands;
+    Speech speech;
+    speech.start(CHESS, allCommands);
+}

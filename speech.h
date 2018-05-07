@@ -13,7 +13,7 @@ class Speech
 public:
     Speech();
 
-    int start(Commands allCommands);
+    int start(int game, Commands allCommands);
 };
 
 #endif // SPEECH_H

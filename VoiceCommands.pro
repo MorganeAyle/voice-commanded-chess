@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += dbus
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,18 +28,24 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     speech.cpp \
-    action.cpp \
     commands.cpp \
-    mycontinuous.cpp
+    mycontinuous.cpp \
+    tetriswindow.cpp \
+    chesswindow.cpp \
+    action.cpp
 
 HEADERS += \
         mainwindow.h \
     speech.h \
-    action.h \
-    commands.h
+    commands.h \
+    tetriswindow.h \
+    chesswindow.h \
+    action.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    tetriswindow.ui \
+    chesswindow.ui
 
 unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lpocketsphinx
 unix:!macx: LIBS += -L$$PWD/../../../usr/local/lib/ -lsphinxbase
